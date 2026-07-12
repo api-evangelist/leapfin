@@ -1,0 +1,94 @@
+aid: leapfin
+name: Leapfin
+review:
+  question: Does Leapfin expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-11'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Leapfin's documented developer surface is
+    the Leap Connect data ingestion API - clients PUSH transactional data to
+    Leapfin over HTTPS (request/response), typically in nightly batches. There is
+    no documented server-push transport (WebSocket or SSE) on Leapfin's own API.
+    Leapfin references webhooks (server-to-endpoint HTTP callbacks), which are not
+    a WebSocket and are out of AsyncAPI scope here given the payloads are behind a
+    gated portal.
+findings:
+  summary: |
+    Leapfin does not publish a documented public WebSocket API. Leapfin is an
+    AI-powered record-to-report and revenue-recognition platform (enterprise
+    SaaS). Its one documented programmatic surface is the Leap Connect API
+    (released 2024-03-22) for data ingestion: developers push transactional data
+    into Leapfin's ingestion services over HTTPS, usually in nightly batch, where
+    it becomes the unified Financial Records schema for ASC 606 / IFRS revenue
+    rules, journal entries, and reporting. The developer reference lives on a
+    ReadMe-style portal (docs.leapfin.com) that is bot-blocked (HTTP 403) and
+    partner/login-gated, so exact endpoint paths, base URL, and auth could not be
+    reproduced. No realtime, bidirectional, or streaming WebSocket (ws:// or
+    wss://) endpoint is referenced anywhere in Leapfin's public product,
+    help-center, or docs material as of the review date.
+  accessModel: |
+    Enterprise SaaS. The Leap Connect / Data Ingestion API is real and
+    documented, but the full API reference is on a login/partner-gated portal and
+    bot-protected. Third-party trackers (apitracker.io) report OpenAPI/Swagger
+    plus Postman and Insomnia collections exist (ReadMe auto-generates these), but
+    the actual specification could not be retrieved without authentication. No
+    public/self-service developer signup or free tier was found; access is via a
+    sales/onboarding relationship.
+  endpointsModeled: true
+  endpointsModeledNote: |
+    Because the detailed reference is gated, no exact endpoint paths or base URL
+    are asserted. The apis.yml entry lists LOGICAL APIs (Data Ingestion / Leap
+    Connect, Financial Records, Revenue Recognition, Journal Entries, Reports,
+    Webhooks) derived from Leapfin's public product and help-center material. No
+    endpoint paths were fabricated; humanURLs point at real doc/help/product
+    pages. No OpenAPI, rate-limits, finops, or collections files were created
+    because no accurate sourced content was available.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: Leap Connect data ingestion API - clients push transactional data over HTTPS, typically nightly batch. Exact base URL is behind the gated docs portal.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Webhooks referenced on the developer portal and third-party trackers. Server-to-endpoint HTTP callback, not WebSocket. Payloads behind the gated portal.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is referenced in any public Leapfin product, help-center, or documentation material as of the review date.
+sources:
+  - url: https://docs.leapfin.com/
+    type: Documentation
+    note: Leap Connect API developer portal (ReadMe-style). Bot-blocked (HTTP 403) / login-gated; base URL and endpoint paths not publicly reproducible.
+  - url: https://docs.leapfin.com/docs/custom-integrations
+    type: APIReference
+    note: Data Ingestion API - push transactional data to ingestion services, recommended nightly batch cadence.
+  - url: https://help.leapfin.com/space/PD/329842701/Introducing+Leap+Connect+API
+    type: HelpCenter
+    note: Introduces Leap Connect API for ingesting transactional data; released 2024-03-22.
+  - url: https://help.leapfin.com/space/PD/164364386/Leap+Connect+API+for+data+ingestion
+    type: HelpCenter
+    note: Leap Connect API for data ingestion.
+  - url: https://help.leapfin.com/space/PD/185893090/About+Leapfin+accounting+records+and+links
+    type: HelpCenter
+    note: Financial/accounting records and the links that trace transactions across order-to-cash.
+  - url: https://www.leapfin.com/product/overview
+    type: ProductPage
+    note: End-to-end workflow - ingest, transform, rules (GAAP/SOX/ASC 606), trace, explore (Luca AI), deliver journal entries and reports to ERPs.
+  - url: https://www.leapfin.com/product/automated-revenue-recognition
+    type: ProductPage
+    note: Templated ASC 606 and IFRS revenue rules; journal entries per revenue activity.
+  - url: https://apitracker.io/a/leapfin
+    type: ThirdParty
+    note: Reports OpenAPI/Swagger, Postman, and Insomnia collections exist plus webhooks; underlying spec not retrievable without auth.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Leapfin's one documented developer API
+    (Leap Connect data ingestion) is request/response HTTPS push, and the full
+    reference is partner/login-gated, so endpoints were modeled from public
+    material and not fabricated. No AsyncAPI document was created because there is
+    no documented server-push (WebSocket/SSE) transport on Leapfin's own API.

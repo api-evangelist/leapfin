@@ -1,0 +1,62 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Leapfin
+providerId: leapfin
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- Revenue Recognition
+- ASC 606
+- Financial Automation
+- Accounting
+- Plans
+description: >-
+  Leapfin is enterprise SaaS and does not publish public, self-service pricing.
+  The platform - including the Leap Connect data ingestion API, revenue
+  recognition rules, journal-entry generation, reporting, and the Luca AI agent -
+  is sold through annual contracts scoped to a customer's transaction volume,
+  data sources, and integrations, arranged via a sales demo. No free tier or
+  public rate card is documented. Exact figures are not reconciled here and must
+  be obtained from Leapfin sales.
+notes: >-
+  Pricing is contact-sales only. There is no public free or self-service tier;
+  the developer documentation portal is partner/login-gated. Verify current
+  commercial terms directly with Leapfin.
+sources:
+- https://www.leapfin.com/
+- https://www.leapfin.com/product/overview
+- https://docs.leapfin.com/
+plans:
+- id: leapfin-enterprise
+  name: Enterprise (Contact Sales)
+  type: enterprise
+  description: >-
+    Custom annual agreement covering platform access, data ingestion via the
+    Leap Connect API, pre-built and custom integrations, ASC 606 / IFRS revenue
+    rules, journal-entry delivery to ERPs, reporting, the Luca AI agent, support,
+    and security review. Scoped to transaction volume and data sources; priced by
+    quote.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Leap Connect Data Ingestion API
+  - name: Pre-built and Custom Integrations
+  - name: ASC 606 and IFRS Revenue Rules
+  - name: Journal Entry Generation
+  - name: Revenue Reporting
+  - name: Luca AI Agent
+  - name: Support and Security Review
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

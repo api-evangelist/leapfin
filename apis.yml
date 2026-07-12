@@ -1,0 +1,161 @@
+aid: leapfin
+url: https://raw.githubusercontent.com/api-evangelist/leapfin/refs/heads/main/apis.yml
+name: Leapfin
+kind: company
+description: >-
+  Leapfin is an AI-powered financial data platform for record-to-report and
+  automated revenue recognition. It ingests transactional data from billing
+  systems, payment processors, and data warehouses, standardizes it into a
+  unified Financial Records schema, applies templated GAAP, SOX, IFRS, and ASC
+  606 revenue rules, and produces audit-ready journal entries and revenue
+  reports that post to ERPs such as NetSuite. Programmatic data ingestion is
+  available through the Leap Connect API (released March 2024); the platform
+  also offers Luca, a native AI agent for exploring and reporting on revenue
+  data. Leapfin is enterprise SaaS - the developer reference is on a
+  partner/login-gated documentation portal, so the API surface below is modeled
+  from Leapfin's public product and help-center material rather than fully
+  reproduced endpoint-by-endpoint.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Revenue Recognition
+- ASC 606
+- Financial Automation
+- Accounting
+- Revenue Accounting
+- Record to Report
+- Journal Entries
+- Data Ingestion
+created: '2026-07-11'
+modified: '2026-07-11'
+specificationVersion: '0.19'
+apis:
+- aid: leapfin:leapfin-data-ingestion-api
+  name: Leapfin Leap Connect Data Ingestion API
+  tags:
+  - Data Ingestion
+  - Leap Connect
+  - Financial Records
+  - ASC 606
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.leapfin.com/docs/custom-integrations
+  properties:
+  - url: https://docs.leapfin.com/
+    type: Documentation
+  - url: https://docs.leapfin.com/docs/custom-integrations
+    type: APIReference
+  - url: https://help.leapfin.com/space/PD/329842701/Introducing+Leap+Connect+API
+    type: HelpCenter
+  description: >-
+    The Leap Connect API is Leapfin's documented programmatic ingestion surface.
+    Developers push transactional data - typically in batch on a nightly cadence
+    - into Leapfin's ingestion services, where it is transformed into the unified
+    Financial Records schema for downstream revenue recognition and journal-entry
+    generation. Detailed endpoint paths, base URL, and auth are on a
+    login/partner-gated ReadMe portal; endpoints modeled here from public help
+    and docs pages, not fabricated.
+- aid: leapfin:leapfin-financial-records-api
+  name: Leapfin Financial Records API
+  tags:
+  - Financial Records
+  - Unified Schema
+  - Transactions
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://help.leapfin.com/space/PD/185893090/About+Leapfin+accounting+records+and+links
+  properties:
+  - url: https://docs.leapfin.com/docs/prebuilt-integrations
+    type: Documentation
+  - url: https://help.leapfin.com/space/PD/185893090/About+Leapfin+accounting+records+and+links
+    type: HelpCenter
+  description: >-
+    Modeled surface for Leapfin Financial Records - the unified accounting-ready
+    schema that ingested billing, payment, and warehouse data is normalized into,
+    with links tracing every transaction across the order-to-cash process.
+    Presented as a logical API for discovery; Leapfin does not publish a
+    standalone public REST reference for these objects, so this is modeled from
+    product documentation and marked endpointsModeled.
+- aid: leapfin:leapfin-revenue-recognition-api
+  name: Leapfin Revenue Recognition API
+  tags:
+  - Revenue Recognition
+  - ASC 606
+  - IFRS
+  - Rules
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.leapfin.com/product/automated-revenue-recognition
+  properties:
+  - url: https://www.leapfin.com/product/automated-revenue-recognition
+    type: Documentation
+  - url: https://www.leapfin.com/solutions/revenue-recognition
+    type: ProductPage
+  description: >-
+    Modeled surface for Leapfin's automated revenue recognition - templated ASC
+    606 and IFRS revenue rules applied across large volumes of Financial Records
+    to control accounting consistency and compliance. Configured within the
+    Leapfin application; no standalone public REST reference is published, so this
+    logical API is modeled from product material and marked endpointsModeled.
+- aid: leapfin:leapfin-journal-entries-api
+  name: Leapfin Journal Entries API
+  tags:
+  - Journal Entries
+  - General Ledger
+  - NetSuite
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.leapfin.com/product/overview
+  properties:
+  - url: https://www.leapfin.com/product/overview
+    type: Documentation
+  description: >-
+    Modeled surface for Leapfin journal-entry generation - balanced, GL-ready
+    entries produced for each revenue recognition activity and delivered to ERPs
+    such as NetSuite. Presented as a logical API for discovery; delivery is via
+    Leapfin's ERP integrations rather than a documented public REST endpoint, so
+    this is modeled and marked endpointsModeled.
+- aid: leapfin:leapfin-reports-api
+  name: Leapfin Reports API
+  tags:
+  - Reports
+  - Analytics
+  - Revenue Reporting
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.leapfin.com/product/overview
+  properties:
+  - url: https://www.leapfin.com/product/overview
+    type: Documentation
+  description: >-
+    Modeled surface for Leapfin reporting - consolidated revenue reports and
+    month-over-month views drillable to the individual transaction, plus
+    natural-language exploration via the Luca AI agent. Surfaced in-app; no public
+    REST reporting reference is published, so this logical API is modeled and
+    marked endpointsModeled.
+- aid: leapfin:leapfin-webhooks-api
+  name: Leapfin Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - Notifications
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.leapfin.com/
+  properties:
+  - url: https://docs.leapfin.com/
+    type: Documentation
+  description: >-
+    Modeled surface for Leapfin webhooks - event notifications referenced on
+    Leapfin's developer portal and third-party API trackers. Exact event types
+    and payloads are on the gated docs portal; modeled here for discovery and
+    marked endpointsModeled.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/leapfin
+- type: Website
+  url: https://www.leapfin.com
+- type: Documentation
+  url: https://docs.leapfin.com/
+- type: HelpCenter
+  url: https://help.leapfin.com/
+- type: Plans
+  url: plans/leapfin-plans-pricing.yml
+- url: https://www.leapfin.com/blog
+  type: Blog
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
