@@ -15,7 +15,19 @@ description: >-
   partner/login-gated documentation portal, so the API surface below is modeled
   from Leapfin's public product and help-center material rather than fully
   reproduced endpoint-by-endpoint.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/leapfin.png
 tags:
 - Revenue Recognition
 - ASC 606
