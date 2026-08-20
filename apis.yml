@@ -34,6 +34,15 @@ tags:
 - Financial Automation
 - Accounting
 - Revenue Accounting
+- Record-to-Report
+- Journal Entries
+- Data Ingestion
+tags_raw:
+- Revenue Recognition
+- ASC 606
+- Financial Automation
+- Accounting
+- Revenue Accounting
 - Record to Report
 - Journal Entries
 - Data Ingestion
@@ -68,6 +77,10 @@ apis:
 - aid: leapfin:leapfin-financial-records-api
   name: Leapfin Financial Records API
   tags:
+  - Financial Records
+  - Unified Schema
+  - Transaction
+  tags_raw:
   - Financial Records
   - Unified Schema
   - Transactions
@@ -142,6 +155,10 @@ apis:
 - aid: leapfin:leapfin-webhooks-api
   name: Leapfin Webhooks API
   tags:
+  - Webhook
+  - Event
+  - Notification
+  tags_raw:
   - Webhooks
   - Events
   - Notifications
