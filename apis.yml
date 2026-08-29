@@ -15,6 +15,17 @@ description: >-
   partner/login-gated documentation portal, so the API surface below is modeled
   from Leapfin's public product and help-center material rather than fully
   reproduced endpoint-by-endpoint.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: unknown
