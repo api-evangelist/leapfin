@@ -39,6 +39,10 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/leapfin.png
+x-docs-platform: stoplight
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-10-03
+x-docs-hosting: aws-cloudfront
 tags:
 - Revenue Recognition
 - ASC 606
@@ -86,6 +90,7 @@ apis:
     login/partner-gated ReadMe portal; endpoints modeled here from public help
     and docs pages, not fabricated.
 - aid: leapfin:leapfin-financial-records-api
+  endpointsModeled: true
   name: Leapfin Financial Records API
   tags:
   - Financial Records
@@ -110,6 +115,7 @@ apis:
     standalone public REST reference for these objects, so this is modeled from
     product documentation and marked endpointsModeled.
 - aid: leapfin:leapfin-revenue-recognition-api
+  endpointsModeled: true
   name: Leapfin Revenue Recognition API
   tags:
   - Revenue Recognition
@@ -130,6 +136,7 @@ apis:
     Leapfin application; no standalone public REST reference is published, so this
     logical API is modeled from product material and marked endpointsModeled.
 - aid: leapfin:leapfin-journal-entries-api
+  endpointsModeled: true
   name: Leapfin Journal Entries API
   tags:
   - Journal Entries
@@ -147,6 +154,7 @@ apis:
     Leapfin's ERP integrations rather than a documented public REST endpoint, so
     this is modeled and marked endpointsModeled.
 - aid: leapfin:leapfin-reports-api
+  endpointsModeled: true
   name: Leapfin Reports API
   tags:
   - Reports
