@@ -1,4 +1,4 @@
-# Leapfin (leapfin)
+# Leapfin
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,78 +64,90 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Leapfin is an AI-powered financial data platform for **record-to-report** and **automated revenue recognition**. It ingests transactional data from billing systems, payment processors, and data warehouses, standardizes it into a unified **Financial Records** schema, applies templated GAAP, SOX, IFRS, and **ASC 606** revenue rules, and produces audit-ready **journal entries** and revenue **reports** that post to ERPs such as NetSuite. Customers include Canva, Reddit, SeatGeek, and Flexport.
+Leapfin is an AI-powered financial data platform for record-to-report and automated revenue recognition. It ingests transactional data from billing systems, payment processors, and data warehouses, standardizes it into a unified Financial Records schema, applies templated GAAP, SOX, IFRS, and ASC 606 revenue rules, and produces audit-ready journal entries and revenue reports that post to ERPs such as NetSuite. Programmatic data ingestion is available through the Leap Connect API (released March 2024); the platform also offers Luca, a native AI agent for exploring and reporting on revenue data. Leapfin is enterprise SaaS - the developer reference is on a partner/login-gated documentation portal, so the API surface below is modeled from Leapfin's public product and help-center material rather than fully reproduced endpoint-by-endpoint.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/leapfin/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/leapfin/refs/heads/main/apis.yml)
+**Areas:** Revenue Recognition · ASC 606 · Financial Automation · Accounting · Revenue Accounting · Record-to-Report · Journal Entries · Data Ingestion
 
-## Access Model (Read This First)
+## Leapfin on APIs.io
 
-Leapfin is **enterprise SaaS**. It exposes one documented programmatic surface, the **Leap Connect API** (released March 22, 2024), used to **ingest** transactional data into the platform - typically pushed over HTTPS in a nightly batch. The full developer reference lives on a ReadMe-style portal at [docs.leapfin.com](https://docs.leapfin.com/) that is **bot-blocked (HTTP 403) and partner/login-gated**, so exact endpoint paths, base URL, and authentication could not be reproduced for this catalog entry.
+Everything profiled for Leapfin is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/leapfin/](https://apis.io/providers/leapfin/)** — or go straight to one of the APIs or properties below.
 
-Because of that gating:
+### APIs (6)
 
-- The APIs listed below are **logical APIs modeled** from Leapfin's public product and help-center material. **No endpoint paths were fabricated** and no base URLs are asserted.
-- Third-party trackers ([apitracker.io](https://apitracker.io/a/leapfin)) report that an OpenAPI/Swagger spec plus Postman and Insomnia collections exist (ReadMe auto-generates these), but the underlying specification is not retrievable without authentication, so **no `openapi/` or `collections/` files were created**.
-- No `rate-limits/` or `finops/` files were created - Leapfin does not publish that data.
-- Pricing is **contact-sales / enterprise only** (see [plans](plans/leapfin-plans-pricing.yml)); there is no public free or self-service tier.
+- [Leapfin Leap Connect Data Ingestion API](https://apis.io/apis/leapfin/leapfin-data-ingestion-api/) — The Leap Connect API is Leapfin's documented programmatic ingestion surface. Developers push transactional data - typically in batch on a nightly cadence -…
+- [Leapfin Financial Records API](https://apis.io/apis/leapfin/leapfin-financial-records-api/) — Modeled surface for Leapfin Financial Records - the unified accounting-ready schema that ingested billing, payment, and warehouse data is normalized into,…
+- [Leapfin Revenue Recognition API](https://apis.io/apis/leapfin/leapfin-revenue-recognition-api/) — Modeled surface for Leapfin's automated revenue recognition - templated ASC 606 and IFRS revenue rules applied across large volumes of Financial Records to…
+- [Leapfin Journal Entries API](https://apis.io/apis/leapfin/leapfin-journal-entries-api/) — Modeled surface for Leapfin journal-entry generation - balanced, GL-ready entries produced for each revenue recognition activity and delivered to ERPs such…
+- [Leapfin Reports API](https://apis.io/apis/leapfin/leapfin-reports-api/) — Modeled surface for Leapfin reporting - consolidated revenue reports and month-over-month views drillable to the individual transaction, plus…
+- [Leapfin Webhooks API](https://apis.io/apis/leapfin/leapfin-webhooks-api/) — Modeled surface for Leapfin webhooks - event notifications referenced on Leapfin's developer portal and third-party API trackers. Exact event types and…
 
-## Tags
+### Published properties
 
-- Revenue Recognition
-- ASC 606
-- Financial Automation
-- Accounting
-- Revenue Accounting
-- Record to Report
-- Journal Entries
-- Data Ingestion
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### Plans and pricing (1)
 
-- **Created:** 2026-07-11
-- **Modified:** 2026-07-11
+Published plans, tiers and prices.
 
-## APIs
+- [Leapfin Plans Pricing](https://apis.io/plans/leapfin/leapfin-plans-pricing/)
 
-> All APIs below are marked **endpointsModeled** - derived from public product/help pages, not from the gated endpoint reference. See [review.yml](review.yml) for the full access-model assessment.
+## Where to find this API
 
-### Leapfin Leap Connect Data Ingestion API
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Leapfin's documented programmatic ingestion surface. Developers push transactional data - typically nightly batch - into Leapfin's ingestion services, where it is transformed into the unified Financial Records schema for downstream revenue recognition and journal-entry generation.
-
-- **Human URL:** [https://docs.leapfin.com/docs/custom-integrations](https://docs.leapfin.com/docs/custom-integrations)
-- Documentation, API Reference, and Help Center links in `apis.yml`.
-
-### Leapfin Financial Records API
-
-Modeled surface for the unified accounting-ready schema that ingested billing, payment, and warehouse data is normalized into, with links tracing every transaction across the order-to-cash process.
-
-### Leapfin Revenue Recognition API
-
-Modeled surface for automated revenue recognition - templated ASC 606 and IFRS revenue rules applied across large volumes of Financial Records for accounting consistency and compliance.
-
-### Leapfin Journal Entries API
-
-Modeled surface for balanced, GL-ready journal entries produced for each revenue recognition activity and delivered to ERPs such as NetSuite.
-
-### Leapfin Reports API
-
-Modeled surface for consolidated revenue reports and month-over-month views drillable to the individual transaction, plus natural-language exploration via the Luca AI agent.
-
-### Leapfin Webhooks API
-
-Modeled surface for event notifications referenced on Leapfin's developer portal and third-party trackers. Exact event types and payloads are behind the gated portal.
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/leapfin)
 - [Website](https://www.leapfin.com)
 - [Documentation](https://docs.leapfin.com/)
-- [Help Center](https://help.leapfin.com/)
-- [Plans](plans/leapfin-plans-pricing.yml)
 - [Blog](https://www.leapfin.com/blog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 9.8** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 5.3 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 0.0** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/leapfin/](https://apis.io/providers/leapfin/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Leapfin: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/leapfin/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
